@@ -31,3 +31,6 @@
 /config/master.key
 
 rt_app
+
+# Ignore uploaded test images.
+/public/uploads
