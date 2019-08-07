@@ -4,6 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
 gem 'faker', '1.7.3'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+gem 'carrierwave',             '1.2.2'
+gem 'mini_magick',             '4.7.0'
 
 # rails-controller-testing
 gem 'rails-controller-testing'
