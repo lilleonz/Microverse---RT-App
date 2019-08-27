@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :microposts, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token
-  before_save :downcase_email
+  before_save { self.email = email.downcase }
   before_create :create_activation_digest
 
   validates :name, presence: true, length: { maximum: 50 }
@@ -33,7 +33,7 @@ class User < ApplicationRecord
   # Returns true if the given token matches the digest.
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
-    return false if digest.nil?
+    return false if remember_digest.nil?
     BCrypt::Password.new(digest).is_password?(token)
   end
 
